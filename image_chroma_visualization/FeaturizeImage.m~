@@ -1,8 +1,7 @@
 
 function [X, im_channels] = FeaturizeImage(im, mask)
 
-im_channels = {};
-im_channels{1} = cast(bsxfun(@times, double(im), mask), 'like', im);
+im_channels = ChannelizeImage(im, mask);
 fprintf("image channelization done..\n");
 
 if isa(im, 'float')
@@ -39,7 +38,7 @@ for i_channel = 1:length(im_channels)
   fprintf("Calculating X for N\n");
   %TODO - change the function to original hist eqaution
   Xc = Psplat2(u(valid), v(valid), ones(nnz(valid),1),0.025,256);
-  fprintf("Calculation of X done\n");
+  fprintf("Calculation of X done\n")
   Xc = Xc / max(eps, sum(Xc(:)));
 
   X{end+1} = Xc;
