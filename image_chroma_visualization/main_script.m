@@ -2,15 +2,15 @@
 
 
 %file_names = ["test_img1.png", "test_img2.png", "test_img3.png"]
-file_names = ["test_img1.png"]
+file_names = ["test_img3.png"]
 %Read image file given a list of file_name in current directory
 
 for i_file = 1:length(file_names)
   file_name = file_names{i_file};
   fprintf("Processing %s\n", file_name);
   I_linear = imread(file_name);
-  %figure(1)
-  %image(I_linear)
+  figure(2)
+  image(I_linear)
   I_valid = all(I_linear > 0,3);
   fprintf("Starting calculation on N\n");
   X = FeaturizeImage(I_linear, I_valid);
