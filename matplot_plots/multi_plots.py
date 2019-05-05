@@ -9,7 +9,7 @@ def main():
     # demonstrates the multi-plots with multiple axes in the same figure
     plt.style.use('seaborn-white')
     # get the figure
-    fig = plt.figure(figsize=(100,100))
+    fig = plt.figure(figsize=(10,10))
     # Create three axes in the figure for plotting [left, top, width, height]
     """ax1 = fig.add_axes([0.1, 0.65, 0.25, 0.25], xticklabels=[], yticklabels=[])
     ax2 = fig.add_axes([0.35, 0.35, 0.25, 0.25], xticklabels=['a','b','c'])
@@ -35,17 +35,38 @@ def main():
     ax1 = fig.add_subplot(grid[0:5,0:5])# 5/6th of the space from left and top
     ax2 = fig.add_subplot(grid[5:6,0:5], xticklabels = [], yticklabels = [])
     ax3 = fig.add_subplot(grid[0:5,5:6], xticklabels = [], yticklabels = [])
-    ax1.plot(x,y,'h', markersize=20, alpha = 0.3)
+    ax1.plot(x,y,'h', markersize=10, alpha = 0.3)
+    arrow_style = dict(color = 'black', facecolor = 'black', arrowstyle = "->",
+                        connectionstyle = "angle, angleA=0, angleB=-90")
+    ax1.annotate("This is an outlier", xy = (6.0,2.1), xycoords = 'data',
+                xytext = (0.1, 0.5), textcoords = 'axes fraction',
+                size=20, ha='right', va="center",
+                arrowprops = arrow_style)
     ax2.hist(x, bins = 100, histtype = 'stepfilled', orientation = 'vertical',
                                     color = (0.2, 0.2, 0.5), alpha = 0.4)
     ax3.hist(y, bins = 100, histtype='stepfilled', orientation = 'horizontal',
                                     color = (0.2, 0.2, 0.5), alpha = 0.4)
     ax2.invert_yaxis()
 
-    #plt.show()
-    plt.savefig("sample.pdf")
+    plt.show()
+    #plt.savefig("sample.pdf")
 
+def test():
+    plt.style.use('seaborn-white')
+    fig, ax = plt.subplots()
 
+    x = np.linspace(0, 20, 1000)
+    ax.plot(x, np.cos(x))
+    ax.axis('equal')
+
+    ax.annotate('local maximum', xy=(6.28, 1), xytext=(10, 4),
+                arrowprops=dict(facecolor='black', shrink=0.05))
+
+    ax.annotate('local minimum', xy=(5 * np.pi, -1), xytext=(2, -6), color = 'k',
+                arrowprops=dict(color = 'black', facecolor='black', arrowstyle="->",
+                                connectionstyle="angle3,angleA=0,angleB=-90"));
+    plt.show()
 
 if __name__ == "__main__":
     main()
+    #test()
