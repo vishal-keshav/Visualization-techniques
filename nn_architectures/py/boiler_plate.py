@@ -8,13 +8,13 @@ def header():
 \usetikzlibrary{quotes}
 \usepackage{tex/Box}
 
-\def\depthwisedark{rgb:green,3;red,0.0;white,5}
-\def\depthwise{rgb:green,2;red,0.0;white,5}
-%\def\depthwise_light{rgb:green,1;red,0.0;white,5}
+\definecolor{depthwisedark}{RGB}{94,238,118}
+\definecolor{depthwise}{RGB}{131,249,151}
+\definecolor{depthwiselight}{RGB}{171,255,185}
 
-\def\pointwisedark{rgb:yellow,6;red,2.5;white,5}
-\def\pointwise{rgb:yellow,5;red,2.5;white,5}
-%\def\pointwise_light{rgb:yellow,4;red,2.5;white,5}
+\definecolor{pointwisedark}{RGB}{255,193,98}
+\definecolor{pointwise}{RGB}{252,210,147}
+\definecolor{pointwiselight}{RGB}{253,226,184}
 
 \begin{document}
 

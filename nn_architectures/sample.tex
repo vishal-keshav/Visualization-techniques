@@ -1,3 +1,4 @@
+
 \documentclass{standalone}
 
 \usepackage{tikz}
@@ -12,30 +13,24 @@
 \definecolor{pointwise}{RGB}{252,210,147}
 \definecolor{pointwiselight}{RGB}{253,226,184}
 
-%\def\depthwisedark{rgb:green,4;white,2}
-%\def\depthwise{rgb:green,3;white,3}
-%\def\depthwiselight{rgb:green,1; white,4}
-
-%\def\pointwisedark{rgb:yellow,5;red,2.5;white,1}
-%\def\pointwise{rgb:yellow,5;red,2.5;white,2}
-%\def\pointwiselight{rgb:yellow,5;red,2.5;white,3}
-
 \begin{document}
 
 \begin{tikzpicture}
-
+    
 \pic[shift={(0,0,0)}] at (0,0,0)
 	{ Box={ name=depthwise,caption= depthwise conv,xlabel={ { "height", } }, ylabel = width, zlabel = depth,
 	fillface=depthwisedark,
-    fillfront=depthwiselight,
+	fillfront=depthwiselight,
 	fill=depthwise, height=64,width=20,depth=64 } };
 
 \pic[shift={(5,0,0)}] at (0,0,0)
 	{ Box={ name=depthwise,caption= pointwise conv,xlabel={ { "height", } }, ylabel = width, zlabel = depth,
 	fillface=pointwisedark,
-    fillfront=pointwiselight,
+	fillfront=pointwiselight,
 	fill=pointwise, height=32,width=20,depth=32 } };
+
 
 \end{tikzpicture}
 
 \end{document}
+    
