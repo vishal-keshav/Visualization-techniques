@@ -1,0 +1,26 @@
+
+    \documentclass{standalone}
+
+    \usepackage{tikz}
+    \usetikzlibrary{quotes}
+    \usepackage{tex/Box}
+
+    \def\depthwise{rgb:green,10;red,2.5;white,5}
+
+    \def\pointwise{rgb:yellow,5;red,2.5;white,5}
+
+    \begin{document}
+
+    \begin{tikzpicture}
+    
+\pic[shift={(0,0,0)}] at (0,0,0)
+	{ Box={ name=depthwise,caption= depthwise conv,xlabel={ { height, } }, ylabel = width, zlabel = depth,
+	fill=\depthwise, height=64,width=20,depth=64 } };
+\pic[shift={(8,0,0)}] at (0,0,0)
+	{ Box={ name=depthwise,caption= pointwise conv,xlabel={ { height, } }, ylabel = width, zlabel = depth,
+	fill=\pointwise, height=32,width=20,depth=32 } };
+
+    \end{tikzpicture}
+
+    \end{document}
+    
