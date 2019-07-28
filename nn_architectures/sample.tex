@@ -1,26 +1,41 @@
+\documentclass{standalone}
 
-    \documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{quotes}
+\usepackage{tex/Box}
 
-    \usepackage{tikz}
-    \usetikzlibrary{quotes}
-    \usepackage{tex/Box}
+\definecolor{depthwisedark}{RGB}{94,238,118}
+\definecolor{depthwise}{RGB}{131,249,151}
+\definecolor{depthwiselight}{RGB}{171,255,185}
 
-    \def\depthwise{rgb:green,10;red,2.5;white,5}
+\definecolor{pointwisedark}{RGB}{255,193,98}
+\definecolor{pointwise}{RGB}{252,210,147}
+\definecolor{pointwiselight}{RGB}{253,226,184}
 
-    \def\pointwise{rgb:yellow,5;red,2.5;white,5}
+%\def\depthwisedark{rgb:green,4;white,2}
+%\def\depthwise{rgb:green,3;white,3}
+%\def\depthwiselight{rgb:green,1; white,4}
 
-    \begin{document}
+%\def\pointwisedark{rgb:yellow,5;red,2.5;white,1}
+%\def\pointwise{rgb:yellow,5;red,2.5;white,2}
+%\def\pointwiselight{rgb:yellow,5;red,2.5;white,3}
 
-    \begin{tikzpicture}
-    
+\begin{document}
+
+\begin{tikzpicture}
+
 \pic[shift={(0,0,0)}] at (0,0,0)
-	{ Box={ name=depthwise,caption= depthwise conv,xlabel={ { height, } }, ylabel = width, zlabel = depth,
-	fill=\depthwise, height=64,width=20,depth=64 } };
-\pic[shift={(8,0,0)}] at (0,0,0)
-	{ Box={ name=depthwise,caption= pointwise conv,xlabel={ { height, } }, ylabel = width, zlabel = depth,
-	fill=\pointwise, height=32,width=20,depth=32 } };
+	{ Box={ name=depthwise,caption= depthwise conv,xlabel={ { "height", } }, ylabel = width, zlabel = depth,
+	fillface=depthwisedark,
+    fillfront=depthwiselight,
+	fill=depthwise, height=64,width=20,depth=64 } };
 
-    \end{tikzpicture}
+\pic[shift={(5,0,0)}] at (0,0,0)
+	{ Box={ name=depthwise,caption= pointwise conv,xlabel={ { "height", } }, ylabel = width, zlabel = depth,
+	fillface=pointwisedark,
+    fillfront=pointwiselight,
+	fill=pointwise, height=32,width=20,depth=32 } };
 
-    \end{document}
-    
+\end{tikzpicture}
+
+\end{document}
