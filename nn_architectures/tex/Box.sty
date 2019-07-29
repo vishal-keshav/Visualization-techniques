@@ -6,8 +6,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tikzset{Box/.pic={\tikzset{/boxblock/.cd,#1}
         \tikzstyle{box}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\fill]
-        \tikzstyle{boxface}=[fill=\fillface]
-        \tikzstyle{boxfront}=[fill=\fillfront]
+        \tikzstyle{boxface}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\fillface]
+        \tikzstyle{boxfront}=[every edge/.append style={pic actions, densely dashed, opacity=.7},fill opacity=\opacity, pic actions,fill=\fillfront]
 
         \pgfmathsetmacro{\y}{\cubey*\scale}
         \pgfmathsetmacro{\z}{\cubez*\scale}
