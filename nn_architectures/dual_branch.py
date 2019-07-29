@@ -103,7 +103,7 @@ class draw_NN(object):
         """
         in_pos = self.node_pos_tracker[node1]
         out_pos = self.node_pos_tracker[node2]
-        pos1 = [in_pos[0], in_pos[1]+depth, in_pos[2]]
+        pos1 = [in_pos[0], in_pos[1], in_pos[2]+depth]
         pos2 = [pos1[0]+extent, pos1[1], pos1[2]]# Draw box here
         pos3 = [out_pos[0]-early, pos2[1], pos2[2]]
         pos4 = [pos3[0], out_pos[1], out_pos[2]]# Draw concat here
@@ -149,7 +149,7 @@ class draw_NN(object):
             print("Please install pdflatex!")
 
 def main():
-    draw_obj = draw_NN("arch_advance", 4)
+    draw_obj = draw_NN("arch_advance", 3)
     draw_obj.add_input("input", "in.jpeg", [128, 128])
     draw_obj.add_generic_conv_tensor(name = "convolution1",shape =[15,3,15])
     draw_obj.add_pointwise_tensor(name = "pointwise1", shape = [15,3,15])
@@ -165,6 +165,10 @@ def main():
     draw_obj.add_upconv_tensor(name = "upconv3", shape = [20,3,20])
     draw_obj.add_intermediate_input("output", "out.jpeg", [128, 128])
     draw_obj.add_residual_multi([12,3,12],"convolution1", "upconv3", "depthwise")
+    draw_obj.add_residual_multi([10,3,10],"pointwise2pool", "upconv2",
+                        "depthwise", depth = 10)
+    draw_obj.add_residual_multi([8,3,8],"pointwise3", "upconv1", "depthwise",
+                        depth = 6, extent = 3, early = 1)
     draw_obj.draw()
 
 if __name__ == "__main__":
