@@ -11,6 +11,11 @@ def construct_connection_pos_tex(in_pos, out_pos, style):
     )
     return code
 
+def add_concat(pos):
+    tex_code = "\\draw ({},{},{}) circle (5pt);".format(pos[0],pos[1],pos[2])+\
+    "\\draw ({},{},{}) node[cross=3pt,rotate=45,red]{{}};".format(pos[0], pos[1], pos[2])
+    return tex_code
+
 def add_connection_simple(node_name, in_pos, out_pos, type = "genericconvop"):
     if node_name == None:
         tex_code = construct_connection_pos_tex(in_pos, out_pos, type)
